@@ -1,0 +1,60 @@
+#include <stdio.h>
+#define MAX 5
+
+int arr[] = {};
+int top = -1;
+
+int push(int );
+
+int pop(int );
+
+int main() {
+    int ch;
+    int size = 0;
+    
+    printf("Enter your choice, 1 -> push(), 2 -> pop(),: ");
+    scanf("%d", &ch);
+    
+    size = sizeof(arr)/sizeof(int);
+    
+    while(size > 0){
+        top++;
+        size--;
+    }
+    
+    switch(ch){
+        case 1:push(top);break;
+        case 2:pop(top);break;
+        default:printf("invalid number");break;
+    }
+    
+}
+
+int push(int x){
+    int item;
+    
+    if(x == MAX -1){
+        printf("overflor");
+    }
+    else{
+        printf("Enter item: ");
+        scanf("%d", &item);
+        
+        x++;
+        arr[x] = item;
+        printf("Your insert item is: %d", item);
+    }
+}
+
+int pop(int y){
+    int val;
+    
+    if(y == -1){
+        printf("underflor");
+    }
+    else{
+        val = arr[top];
+        top--;
+        printf("You delete value is: %d", val);
+    }
+}
