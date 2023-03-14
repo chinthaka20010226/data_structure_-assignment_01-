@@ -1,0 +1,75 @@
+----> by using macro,
+
+#include <stdio.h>
+#define name "chinthaka senarathna"
+
+int main(){
+    printf("my name is %s", name);
+
+    return 0;
+}
+
+-----> by using scanf(),
+
+-- method - 01
+
+#include <stdio.h>
+
+int main(){
+    char name[50];
+
+    printf("what is your name: ");
+    scanf("%[^\n]s", name);
+  
+    printf("your name is %s", name);
+
+    return 0;
+}
+
+-- method - 02
+
+#include <stdio.h>
+
+int main(){
+    char name[50];
+
+    printf("what is your name: ");
+    scanf("%[^\n]%*c", name);
+  
+    printf("your name is %s", name);
+
+    return 0;
+}
+
+
+------> by using gets(), //this method is very dengerous.... remember that,
+
+#include <stdio.h>
+
+int main(){
+    char name[50];
+
+    printf("what is your name: ");
+    gets(name);
+
+    printf("your name is %s", name);
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
