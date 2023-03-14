@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node{
+    int data;
+    struct node *next;
+};
+
+int main(){
+    struct node *head ,*newnode ,*temp;
+    char ch;
+    
+    head = NULL;
+    
+    do{
+        newnode = (struct node *)malloc(sizeof(struct node)); // dynamic memory allocation
+    
+        printf("enter your value: ");
+        scanf("%d", &newnode -> data);
+    
+        newnode -> next = NULL;
+    
+        if(head == NULL){
+            head = temp = newnode;
+        }
+        else{
+            temp -> next = newnode;
+            temp = newnode;
+        }
+        
+        printf("do you want to create a new node(remember this, yes -> 'y', no -> 'n'): ");
+        scanf(" %c", &ch);
+        
+    }while(ch == 'y' || ch == 'Y');
+    
+    temp = head;
+    
+    // display value
+    while(temp != NULL){
+        printf("%d ", temp -> data);
+        temp = temp -> next;
+    }
+    printf("\n");
+    
+    temp = head;
+    
+    // display adress
+    while(temp != NULL){
+        printf("%p ", temp);
+        temp = temp -> next;
+    }
+    
+}
+
+
+

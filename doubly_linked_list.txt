@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node{
+    int data;
+    struct node *next;
+    struct node *prev;
+};
+
+int main(){
+    struct node *head ,*tail ,*temp ,*new_node;
+    char ch;
+    
+    head = tail = NULL;
+    
+    do{
+        new_node = (struct node *)malloc(sizeof(struct node));
+    
+        printf("enter value: ");
+        scanf("%d", &new_node -> data);
+    
+        new_node -> next = NULL;
+        new_node -> prev = NULL;
+    
+        if((head == NULL) && (tail == NULL)){
+            head = tail = new_node;
+        }
+        else{
+            tail -> next = new_node;
+            new_node -> prev = tail;
+            tail = new_node;
+        }
+        printf("do you want to add value again: ");
+        scanf(" %c", &ch);
+    }while(ch == 'y' || ch == 'Y');
+    
+    // display value
+    temp = head;
+    while(temp != tail){
+        printf("%d ", temp -> data);
+        temp = temp -> next;
+    }
+    printf("%d ", temp -> data);
+    printf("\n");
+
+    // display address
+    temp = head;
+    while(temp != tail){
+        printf("%p ", temp);
+        temp = temp -> next;
+    }
+    printf("%p ", temp);
+    
+}
