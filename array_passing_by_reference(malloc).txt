@@ -1,0 +1,60 @@
+------> staticaly allocation,
+
+#include <stdio.h>
+#define SIZE 5
+
+int display(int *);
+
+int main(){
+    int arr[SIZE];
+    
+    for(int i = 0;i < SIZE;i++){
+        printf("input element %d: ", i);
+        scanf("%d", &arr[i]);
+    }
+    
+    display(arr);
+    
+    return 0;
+}
+
+int display(int *Arr){
+    for(int i = 0;i < SIZE;i++){
+        printf("%d ", Arr[i]);
+    }
+    
+    return 0;
+}
+
+-------> dynamically allocation,
+
+#include <stdio.h>
+#include <stdlib.h>
+// #define SIZE 5 // using macross
+
+int display(int *,int );
+
+int main(){
+    int *arr,n;
+    printf("enter no.of elements: ");
+    scanf("%d", &n);
+    
+    arr = (int *)malloc(n * sizeof(int));
+    
+    for(int i = 0;i < n;i++){
+        printf("input element %d: ", i);
+        scanf("%d", &arr[i]);
+    }
+    
+    display(arr,n);
+    
+    return 0;
+}
+
+int display(int *Arr,int x){
+    for(int i = 0;i < x;i++){
+        printf("%d ", Arr[i]);
+    }
+    
+    return 0;
+}
